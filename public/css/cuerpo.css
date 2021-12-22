@@ -1,0 +1,49 @@
+body{
+    /* fondo del contenido con un degradado  */
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 (configuracion para los navegadore)*/
+    background: linear-gradient(to bottom, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ (configuracion para los navegadore)*/ 
+
+}
+
+a{
+    color: rgb(41, 46, 41);
+}
+
+.error{
+    width: 40%;
+    animation-duration: 4s;  /* duración de la transición de la imagen */ 
+    animation-iteration-count: infinite; /*cantidad de repeticiones de la animación*/
+    animation-name: desplace; /*nombre de la listas de animaciones que se aplicaran al elemento img con la clase error */
+    padding: 2em;
+    position: relative;
+    margin-left: 30%;
+}
+ /* listas de animaciones */
+@keyframes desplace {
+    /* inicio */
+    0%{
+        -webkit-transform: rotateY(360deg); /* rotacion de 360° en sentido de eje y  */
+    }
+    /* final */
+    100%{
+
+    }
+    
+}
+
+.titulo404{
+    padding-top: 10px;
+    text-align: center;
+    
+}
+
+footer{
+    padding-top: 1.5em;
+}
+
+.img-perfilC{
+    padding: 10px 0;
+}
+
+
