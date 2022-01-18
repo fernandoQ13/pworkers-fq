@@ -1,5 +1,5 @@
 <div style="border-radius: 2em; margin: 0 20%; margin-bottom: 20px; border: 2px solid #777;">
-    <form action="/curriculo" style="padding: 3%;" method="post">
+    <form action="/curriculo" style="padding: 3%;" onsubmit=" return vcaptcha(this)" method="post">
         <div class="form-group">
             <label class="mfor">Puede dejar un mensaje si deseas contactarlo</label>
             <br>
@@ -27,8 +27,23 @@
             <label for="exampleFormControlTextarea1">Mensaje</label>
             <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1" rows="3" required></textarea>
         </div>
-        
-        <button type="submit" class="btn btn-primary" onclick="fc()" style="margin: 0 35%;">Submit</button>
+        <div class="g-recaptcha" data-sitekey="6LcoZRweAAAAAPYTnqjXx0yIpNJ8FeJ4dWWE6y1q" ></div><br>
+        <button type="submit" class="btn btn-primary" onclick="fc()" name="enviar" style="margin: 0 35%;" >Submit</button>
     </form>
 </div>
+<script>
+    function vcaptcha(a) {
+      var response = grecaptcha.getResponse();
+  
+      if(response.length == 0){
+        alert("Captcha no verificado")
+        return false;
+      } else {
+        alert("Captcha verificado");
+        return true;
+      }
+    }
+
+    
+</script>
 
