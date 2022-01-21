@@ -7,5 +7,17 @@ function fc() {
   // setAttribute me cambia el valor del atributo value por el valor data()
   document.getElementById('fecha').setAttribute('value',Date())
 }
+ 
+function vcaptcha(a) {
+  // validacion del recaptcah
+         var response = grecaptcha.getResponse();
 
+        if(response.length == 0){
+            alert("Captcha no verificado")
+            return false;
+        } else {
+            alert("Captcha verificado");
+            return true;
+        }
+    }
 
