@@ -1,6 +1,8 @@
 const express = require('express');
+const nodemailer = require('nodemailer');
 const router = express.Router();
 const fs = require ('fs');
+const { info } = require('console');
 
 //lee un archivo json el cual contiene todo los msj, lo convierte en un string
 // y lo guarda en la nueva variable json_mensaje
@@ -48,7 +50,35 @@ router.post('/curriculo', (req, res) => {
         fecha,
         correo,
         mensaje
+    } 
+
+    var transporter = nodemailer.createTransport({
+
+        host: 'smtp.hostinger.com',
+        port: 465,
+        secure: false,
+        auth:{
+            user:'pg2_test@arodu.xyz',
+            pass: '123Qwerty'
+        }
+    });
+    
+    var mailOptions = {
+        from: "pg2_test@arodu.xyz",
+        to: 'gabof1309@gmail.com,programacion2ais@dispostable.com',
+        subject: "Curriculo de fernando Quintana",
+        text: `Nombre: ${nuevoMensaje.nombre}`
     }
+
+    transporter.sendMail(mailOptions, (error, info) =>{
+        if(error){
+            res.status(500).send(error.message);
+        } else{
+
+            console.log("mensaje enviado ccon exito");
+            res.status(200).json(req.body);
+        }
+    })
     // agrega una nueva lista o valor a la variable mensaje
     mensajes.push(nuevoMensaje);
     
